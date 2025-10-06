@@ -56,4 +56,16 @@ class MovieRepositoryImpl @Inject constructor (
             posterPath = movie.posterPath
         ))
     }
+
+    override suspend fun getAllFavorites(): List<Movie> = withContext(Dispatchers.IO) {
+        return@withContext movieDao.fetchAll().map { movieEntity ->
+            Movie(
+                id = movieEntity.id,
+                title = movieEntity.title,
+                overview = movieEntity.overview,
+                posterPath = movieEntity.posterPath,
+                isFavorite = true
+            )
+        }
+    }
 }
