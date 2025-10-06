@@ -22,6 +22,24 @@ class MoviesViewModel @Inject constructor (private val repository: MovieReposito
         }
     }
 
+    fun toggleFavorite(movie: Movie) {
+        viewModelScope.launch {
+            if (movie.isFavorite) {
+                repository.deleteFavorite(movie)
+            } else {
+                repository.insertFavorite(movie)
+            }
+        }
+
+        _movies.value = _movies.value.map { item ->
+            if (item.id == movie.id) {
+                item.copy(isFavorite = !item.isFavorite)
+            } else {
+                item
+            }
+        }
+    }
+
     init {
         getAllMovies()
     }
