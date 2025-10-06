@@ -10,7 +10,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import pe.edu.upc.easymovie.features.movies.presentation.components.MovieCard
 
 @Preview(showBackground = true)
 @Composable

@@ -4,14 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import pe.edu.upc.easymovie.features.main.MainView
 import pe.edu.upc.easymovie.features.movies.presentation.MoviesView
 import pe.edu.upc.easymovie.ui.theme.EasyMovieTheme
 
@@ -23,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             EasyMovieTheme {
                 Scaffold { innerPadding ->
-                    MoviesView(modifier = Modifier.padding(innerPadding))
+                    MainView(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
